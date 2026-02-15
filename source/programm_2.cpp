@@ -13,7 +13,7 @@
 
 typedef enum : bool
 {
-    OK = 0,
+    OK = false,
     COUNTER_OVERFLOW = !OK,
 }status_t;
 
