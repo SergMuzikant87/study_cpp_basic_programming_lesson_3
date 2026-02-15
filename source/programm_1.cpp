@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 #include <clocale>
-#include <cstdint>
 #include <cmath>
 
 #define NUMBERS_DEFAULT_VALUE (1.0)
@@ -11,7 +10,6 @@
 class Calculyator
 {
     private:
-    
         double __num1;
         double __num2;
 

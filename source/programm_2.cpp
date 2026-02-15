@@ -112,10 +112,7 @@ Command::~Command(void)
 
 Command::Command(const Command & command)
 {
-    if(((&command) != this))
-    {
-        __counter->set(command.__counter->get());
-    }
+    __counter = new Counter(command.__counter->get());
 }
 
 Command & Command::operator= (const Command & command)
@@ -129,21 +126,21 @@ Command & Command::operator= (const Command & command)
 
 void Command::run(void)
 {
-    char command {command_t::UNKNOWN};
-    while(command != command_t::STOP)
+    char command {UNKNOWN};
+    while(command != STOP)
     {
-        std::cout << "Введите команду: ( \'" << command_t::INC << "\', \'" << command_t::DEC << "\', \'" << command_t::READ << "\', \'" << command_t::STOP << "\'): ";
+        std::cout << "Введите команду: ( \'" << INC << "\', \'" << DEC << "\', \'" << READ << "\', \'" << STOP << "\'): ";
         std::cin >> command;
         switch(command)
         {
             case INC: 
-                if(__counter->inc() == status_t::COUNTER_OVERFLOW)
+                if(__counter->inc() == COUNTER_OVERFLOW)
                 {
                     std::cout << "Счётчик переполнился.\n";
                 } 
                 break;
             case DEC: 
-                if(__counter->dec() == status_t::COUNTER_OVERFLOW)
+                if(__counter->dec() == COUNTER_OVERFLOW)
                 {
                     std::cout << "Счётчик переполнился.\n";
                 } 
@@ -179,6 +176,3 @@ int main(int argc, char * argv[])
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
