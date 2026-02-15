@@ -1,0 +1,7 @@
+*
+!output
+!output/.gitkeep
+!source
+!source/*.cpp
+!Makefile
+!.gitignore
