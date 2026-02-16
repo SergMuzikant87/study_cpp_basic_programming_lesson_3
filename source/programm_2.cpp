@@ -119,7 +119,8 @@ Command & Command::operator= (const Command & command)
 {
     if((&command) != this)
     {
-        __counter->set(command.__counter->get());
+        delete __counter;
+        __counter = new Counter(command.__counter->get());
     }
     return *this;
 }
